@@ -231,6 +231,42 @@
       background: rgba(79, 140, 255, 0.2);
       border-color: rgba(79, 140, 255, 0.45);
     }
+
+    /* Stack */
+    .stack-groups { display: grid; gap: 20px; }
+    .stack-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 22px;
+    }
+    .stack-group h3 {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+    .stack-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .stack-badges span {
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--text);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 6px 12px;
+    }
+    .stack-note {
+      margin-top: 16px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
   </style>
 </head>
 <body>
@@ -278,15 +314,77 @@
     </section>
 
     <section>
+      <p class="section-label">Технологии</p>
+      <h2 class="section-title">Стек</h2>
+      <p class="section-desc">
+        Сводка технологий из всех наших проектов — без привязки к конкретным репозиториям.
+      </p>
+
+      <div class="stack-groups">
+        <div class="stack-group">
+          <h3>Backend</h3>
+          <div class="stack-badges">
+            <span>Go</span>
+            <span>PHP 8</span>
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>Node.js</span>
+            <span>Chi</span>
+            <span>Gin</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Frontend</h3>
+          <div class="stack-badges">
+            <span>React</span>
+            <span>TypeScript</span>
+            <span>Vite</span>
+            <span>Tailwind CSS</span>
+            <span>JavaScript</span>
+            <span>jQuery</span>
+            <span>Electron</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Инфраструктура</h3>
+          <div class="stack-badges">
+            <span>Ubuntu</span>
+            <span>Docker</span>
+            <span>nginx</span>
+            <span>Caddy</span>
+            <span>Apache</span>
+            <span>GitHub Actions</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Данные</h3>
+          <div class="stack-badges">
+            <span>PostgreSQL</span>
+            <span>Redis</span>
+            <span>MySQL</span>
+            <span>AWS S3</span>
+          </div>
+        </div>
+        <div class="stack-group">
+          <h3>Инструменты</h3>
+          <div class="stack-badges">
+            <span>Git</span>
+            <span>GORM</span>
+            <span>JWT</span>
+            <span>REST API</span>
+            <span>WebSocket</span>
+          </div>
+        </div>
+      </div>
+      <p class="stack-note">Список формируется по стеку всех проектов компании; названия private-репозиториев не публикуем.</p>
+    </section>
+
+    <section>
       <p class="section-label">О компании</p>
       <div class="about-grid">
         <div class="about-item">
           <strong>Чем занимаемся</strong>
           <span>Корпоративные сайты, лендинги, миграция на VPS, CI/CD</span>
-        </div>
-        <div class="about-item">
-          <strong>Стек</strong>
-          <span>PHP · JavaScript · Nginx · Docker · PostgreSQL · Node.js</span>
         </div>
         <div class="about-item">
           <strong>Связь</strong>
