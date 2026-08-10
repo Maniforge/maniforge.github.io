@@ -196,6 +196,41 @@
     }
     footer a { color: var(--accent); text-decoration: none; }
     footer a:hover { text-decoration: underline; }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 40px 24px;
+    }
+    .contact h2 {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+    .contact p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 20px;
+    }
+    .contact-email {
+      display: inline-block;
+      font-size: 1.125rem;
+      font-weight: 500;
+      color: var(--accent);
+      text-decoration: none;
+      padding: 12px 24px;
+      background: var(--accent-dim);
+      border: 1px solid rgba(79, 140, 255, 0.25);
+      border-radius: 999px;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .contact-email:hover {
+      background: rgba(79, 140, 255, 0.2);
+      border-color: rgba(79, 140, 255, 0.45);
+    }
   </style>
 </head>
 <body>
@@ -255,8 +290,17 @@
         </div>
         <div class="about-item">
           <strong>Связь</strong>
-          <span><a href="mailto:svit22@mail.ru" style="color:var(--accent);text-decoration:none">svit22@mail.ru</a></span>
+          <span><a href="mailto:hello@maniforge.ru" style="color:var(--accent);text-decoration:none">hello@maniforge.ru</a></span>
         </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="contact">
+        <p class="section-label" style="margin-bottom:16px">Контакты</p>
+        <h2>Связь с нами</h2>
+        <p>Обсудим проект, инфраструктуру или сотрудничество — напишите на почту.</p>
+        <a class="contact-email" href="mailto:hello@maniforge.ru">hello@maniforge.ru</a>
       </div>
     </section>
 
