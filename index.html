@@ -3,106 +3,267 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Maniforge</title>
-  <meta name="description" content="Maniforge — инженерная студия экосистемы Svitex" />
+  <title>Maniforge — IT-компания</title>
+  <meta name="description" content="Maniforge — IT-компания. Разработка сайтов, инфраструктура и автоматизация." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --bg: #0f1419;
-      --card: #1a2332;
-      --text: #e8edf4;
-      --muted: #8b9cb3;
-      --accent: #3b82f6;
-      --accent-soft: rgba(59, 130, 246, 0.15);
-      --border: rgba(255, 255, 255, 0.08);
+      --bg: #0a0e14;
+      --surface: #131920;
+      --surface-hover: #1a222d;
+      --text: #eef2f7;
+      --muted: #8b97a8;
+      --accent: #4f8cff;
+      --accent-dim: rgba(79, 140, 255, 0.12);
+      --border: rgba(255, 255, 255, 0.07);
+      --radius: 14px;
     }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: Inter, system-ui, sans-serif;
-      background: radial-gradient(ellipse at top, #1a2744 0%, var(--bg) 55%);
+      background: var(--bg);
       color: var(--text);
+      line-height: 1.65;
       min-height: 100vh;
-      line-height: 1.6;
     }
-    .wrap { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
-    header { text-align: center; margin-bottom: 48px; }
-    .logo {
+    .glow {
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 50% at 50% -10%, rgba(79, 140, 255, 0.14), transparent),
+        radial-gradient(ellipse 40% 30% at 90% 80%, rgba(79, 140, 255, 0.06), transparent);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .page {
+      position: relative;
+      z-index: 1;
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 64px 24px 80px;
+    }
+
+    /* Hero */
+    .hero { text-align: center; margin-bottom: 72px; }
+    .badge {
       display: inline-block;
-      font-size: 2.5rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: var(--accent-dim);
+      border: 1px solid rgba(79, 140, 255, 0.25);
+      border-radius: 999px;
+      padding: 6px 14px;
+      margin-bottom: 24px;
+    }
+    .hero h1 {
+      font-size: clamp(2.25rem, 6vw, 3.25rem);
       font-weight: 700;
       letter-spacing: -0.03em;
-      margin-bottom: 12px;
+      line-height: 1.15;
+      margin-bottom: 20px;
     }
-    .logo span { color: var(--accent); }
-    .tagline { color: var(--muted); font-size: 1.125rem; max-width: 520px; margin: 0 auto; }
-    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
-    .card {
-      background: var(--card);
+    .hero h1 span { color: var(--accent); }
+    .hero .lead {
+      font-size: 1.125rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto 32px;
+    }
+    .services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+    }
+    .services span {
+      font-size: 0.875rem;
+      color: var(--muted);
+      background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 16px;
+      border-radius: 999px;
+      padding: 8px 16px;
+    }
+
+    /* Section */
+    section { margin-bottom: 56px; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .section-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin-bottom: 28px;
+      max-width: 560px;
+    }
+
+    /* Projects */
+    .projects { display: grid; gap: 16px; }
+    @media (min-width: 600px) {
+      .projects { grid-template-columns: repeat(2, 1fr); }
+    }
+    .project {
+      display: flex;
+      flex-direction: column;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
       padding: 24px;
+      text-decoration: none;
+      color: inherit;
+      transition: background 0.2s, border-color 0.2s;
     }
-    .card h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
-    .card p { color: var(--muted); font-size: 0.95rem; }
-    .card ul { list-style: none; margin-top: 12px; }
-    .card li { padding: 8px 0; border-top: 1px solid var(--border); }
-    .card a { color: var(--text); text-decoration: none; }
-    .card a:hover { color: var(--accent); }
-    .repo {
+    a.project:hover {
+      background: var(--surface-hover);
+      border-color: rgba(79, 140, 255, 0.3);
+    }
+    .project.soon {
+      opacity: 0.55;
+      pointer-events: none;
+      cursor: default;
+    }
+    .project-tag {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .project.soon .project-tag { color: var(--muted); }
+    .project h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+    .project p {
+      font-size: 0.9rem;
+      color: var(--muted);
+      flex: 1;
+    }
+    .project-links {
+      display: flex;
+      gap: 16px;
+      margin-top: 16px;
+      font-size: 0.85rem;
+    }
+    .project-links a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    .project-links a:hover { text-decoration: underline; }
+
+    /* About */
+    .about-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+    .about-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px;
+    }
+    .about-item strong {
       display: block;
-      padding: 16px;
-      background: var(--accent-soft);
-      border-radius: 12px;
-      margin-top: 8px;
+      font-size: 0.85rem;
+      margin-bottom: 6px;
     }
-    .repo strong { display: block; margin-bottom: 4px; }
-    .repo small { color: var(--muted); }
-    footer { text-align: center; margin-top: 48px; color: var(--muted); font-size: 0.875rem; }
+    .about-item span { font-size: 0.875rem; color: var(--muted); }
+
+    footer {
+      text-align: center;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.875rem;
+    }
     footer a { color: var(--accent); text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header>
-      <div class="logo">Mani<span>forge</span></div>
-      <p class="tagline">Инженерная студия экосистемы Svitex — веб, инфраструктура и внутренние сервисы</p>
+  <div class="glow" aria-hidden="true"></div>
+  <div class="page">
+
+    <header class="hero">
+      <div class="badge">IT-компания</div>
+      <h1>Mani<span>forge</span></h1>
+      <p class="lead">
+        Разрабатываем сайты, настраиваем инфраструктуру и автоматизируем процессы для бизнеса.
+      </p>
+      <div class="services">
+        <span>Веб-разработка</span>
+        <span>Инфраструктура</span>
+        <span>Автоматизация</span>
+        <span>DevOps</span>
+      </div>
     </header>
 
-    <div class="grid">
-      <section class="card">
-        <h2>О нас</h2>
-        <p>Разрабатываем и сопровождаем цифровые продукты для розничных и производственных направлений группы Svitex.</p>
-      </section>
+    <section>
+      <p class="section-label">Проекты</p>
+      <h2 class="section-title">Избранное</h2>
+      <p class="section-desc">
+        Публикуем только открытые проекты. Внутренние и корпоративные решения остаются в private-репозиториях.
+      </p>
 
-      <section class="card">
-        <h2>Стек</h2>
-        <p>PHP · JavaScript · Nginx · Docker · PostgreSQL · Node.js · Ubuntu</p>
-      </section>
-
-      <section class="card">
-        <h2>Проекты</h2>
-        <a class="repo" href="https://github.com/Maniforge/svit_Dremadoma">
-          <strong>svit_Dremadoma</strong>
-          <small>Лендинг сети «Дрёма» → dremadoma.ru</small>
+      <div class="projects">
+        <a class="project" href="https://github.com/Maniforge/svit_Dremadoma">
+          <div class="project-tag">Открытый проект</div>
+          <h3>svit_Dremadoma</h3>
+          <p>Официальный лендинг сети магазинов «Дрёма» — постельное бельё и товары для дома.</p>
+          <div class="project-links">
+            <span><a href="https://github.com/Maniforge/svit_Dremadoma" onclick="event.stopPropagation()">GitHub</a></span>
+            <span><a href="https://dremadoma.ru/" onclick="event.stopPropagation()">dremadoma.ru</a></span>
+          </div>
         </a>
-      </section>
 
-      <section class="card">
-        <h2>Ссылки</h2>
-        <ul>
-          <li><a href="https://github.com/Maniforge">GitHub</a></li>
-          <li><a href="https://github.com/Maniforge/svit_Dremadoma">svit_Dremadoma</a></li>
-          <li><a href="https://dremadoma.ru/">dremadoma.ru</a></li>
-          <li><a href="mailto:svit22@mail.ru">svit22@mail.ru</a></li>
-        </ul>
-      </section>
-    </div>
+        <div class="project soon">
+          <div class="project-tag">Скоро</div>
+          <h3>Новые проекты</h3>
+          <p>Готовим публикацию следующих открытых работ. Следите за обновлениями на GitHub.</p>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label">О компании</p>
+      <div class="about-grid">
+        <div class="about-item">
+          <strong>Чем занимаемся</strong>
+          <span>Корпоративные сайты, лендинги, миграция на VPS, CI/CD</span>
+        </div>
+        <div class="about-item">
+          <strong>Стек</strong>
+          <span>PHP · JavaScript · Nginx · Docker · PostgreSQL · Node.js</span>
+        </div>
+        <div class="about-item">
+          <strong>Связь</strong>
+          <span><a href="mailto:svit22@mail.ru" style="color:var(--accent);text-decoration:none">svit22@mail.ru</a></span>
+        </div>
+      </div>
+    </section>
 
     <footer>
       <p>© Maniforge · <a href="https://github.com/Maniforge">github.com/Maniforge</a></p>
     </footer>
+
   </div>
 </body>
 </html>
