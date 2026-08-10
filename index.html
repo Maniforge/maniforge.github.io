@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Maniforge</title>
+  <meta name="description" content="Maniforge — инженерная студия экосистемы Svitex" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f1419;
+      --card: #1a2332;
+      --text: #e8edf4;
+      --muted: #8b9cb3;
+      --accent: #3b82f6;
+      --accent-soft: rgba(59, 130, 246, 0.15);
+      --border: rgba(255, 255, 255, 0.08);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: Inter, system-ui, sans-serif;
+      background: radial-gradient(ellipse at top, #1a2744 0%, var(--bg) 55%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+    }
+    .wrap { max-width: 880px; margin: 0 auto; padding: 48px 24px 80px; }
+    header { text-align: center; margin-bottom: 48px; }
+    .logo {
+      display: inline-block;
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .logo span { color: var(--accent); }
+    .tagline { color: var(--muted); font-size: 1.125rem; max-width: 520px; margin: 0 auto; }
+    .grid { display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+    }
+    .card h2 { font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
+    .card p { color: var(--muted); font-size: 0.95rem; }
+    .card ul { list-style: none; margin-top: 12px; }
+    .card li { padding: 8px 0; border-top: 1px solid var(--border); }
+    .card a { color: var(--text); text-decoration: none; }
+    .card a:hover { color: var(--accent); }
+    .repo {
+      display: block;
+      padding: 16px;
+      background: var(--accent-soft);
+      border-radius: 12px;
+      margin-top: 8px;
+    }
+    .repo strong { display: block; margin-bottom: 4px; }
+    .repo small { color: var(--muted); }
+    footer { text-align: center; margin-top: 48px; color: var(--muted); font-size: 0.875rem; }
+    footer a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="logo">Mani<span>forge</span></div>
+      <p class="tagline">Инженерная студия экосистемы Svitex — веб, инфраструктура и внутренние сервисы</p>
+    </header>
+
+    <div class="grid">
+      <section class="card">
+        <h2>О нас</h2>
+        <p>Разрабатываем и сопровождаем цифровые продукты для розничных и производственных направлений группы Svitex.</p>
+      </section>
+
+      <section class="card">
+        <h2>Стек</h2>
+        <p>PHP · JavaScript · Nginx · Docker · PostgreSQL · Node.js · Ubuntu</p>
+      </section>
+
+      <section class="card">
+        <h2>Проекты</h2>
+        <a class="repo" href="https://github.com/Maniforge/svit_Dremadoma">
+          <strong>svit_Dremadoma</strong>
+          <small>Лендинг сети «Дрёма» → dremadoma.ru</small>
+        </a>
+      </section>
+
+      <section class="card">
+        <h2>Ссылки</h2>
+        <ul>
+          <li><a href="https://github.com/Maniforge">GitHub</a></li>
+          <li><a href="https://github.com/Maniforge/svit_Dremadoma">svit_Dremadoma</a></li>
+          <li><a href="https://dremadoma.ru/">dremadoma.ru</a></li>
+          <li><a href="mailto:svit22@mail.ru">svit22@mail.ru</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <footer>
+      <p>© Maniforge · <a href="https://github.com/Maniforge">github.com/Maniforge</a></p>
+    </footer>
+  </div>
+</body>
+</html>
